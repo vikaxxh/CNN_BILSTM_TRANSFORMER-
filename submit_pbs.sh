@@ -3,7 +3,7 @@
 #PBS -o cvd_pbs.log
 #PBS -e cvd_pbs.err
 #PBS -q workq
-#PBS -l select=1:ncpus=16:mem=16gb
+#PBS -l select=1:ncpus=10
 #PBS -l walltime=04:00:00
 
 # Change to the submission directory in PBS Pro
@@ -19,10 +19,10 @@ echo "Working Dir   : $(pwd)"
 echo "Start Time    : $(date)"
 echo "=========================================================="
 
-# 1. Threading & oneDNN Vectorization Optimization
-export OMP_NUM_THREADS=16
-export TF_NUM_INTRAOP_THREADS=16
-export TF_NUM_INTEROP_THREADS=4
+# 1. Threading & oneDNN Vectorization Optimization (max 10 cpus for workq)
+export OMP_NUM_THREADS=10
+export TF_NUM_INTRAOP_THREADS=10
+export TF_NUM_INTEROP_THREADS=2
 export KMP_BLOCKTIME=0
 export TF_ENABLE_ONEDNN_OPTS=1
 
@@ -36,7 +36,7 @@ echo "Using Python: $(which python)"
 # 3. Execute Deep Learning & Digital Twin Pipeline
 python run_pipeline.py \
     --epochs 100 \
-    --batch-size 512 \
+    --batch-size 256 \
     --out-dir cvd_thesis_results_hpc \
     --shap-samples 150 \
     --shap-background 75
