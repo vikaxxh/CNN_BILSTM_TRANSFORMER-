@@ -26,12 +26,12 @@ export TF_NUM_INTEROP_THREADS=4
 export KMP_BLOCKTIME=0
 export TF_ENABLE_ONEDNN_OPTS=1
 
-# 2. Activate Python / Conda Environment
-# If you have an active conda environment on HPC:
-# conda activate <your_env>
-if [ -f ".venv/bin/activate" ]; then
-    source .venv/bin/activate
-fi
+# 2. Activate Conda Environment
+source /home/apps/anaconda-2024.02/etc/profile.d/conda.sh
+conda activate cvd_env
+
+# Verify python path
+echo "Using Python: $(which python)"
 
 # 3. Execute Deep Learning & Digital Twin Pipeline
 python run_pipeline.py \
