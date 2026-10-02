@@ -4,7 +4,9 @@
 #PBS -e cvd_pbs.err
 #PBS -l select=1:ncpus=32:mem=32gb
 #PBS -l walltime=04:00:00
-#PBS -q batch
+## Note: Uncomment and set your cluster queue name if required (e.g. standard, workq, cpu)
+## Check available queues on your cluster using: qstat -q
+# #PBS -q default
 
 # Change to the submission directory in PBS
 if [ -n "$PBS_O_WORKDIR" ]; then
