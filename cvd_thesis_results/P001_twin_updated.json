@@ -1,0 +1,18 @@
+{
+  "patient_id": "P001",
+  "clinical_data": {
+    "age": 55,
+    "gender": 1,
+    "height": 165,
+    "weight": 75,
+    "ap_hi": 125,
+    "ap_lo": 80,
+    "cholesterol": 2,
+    "gluc": 1,
+    "smoke": 0,
+    "alco": 0,
+    "active": 1
+  },
+  "predicted_cvd_probability": 0.454614,
+  "risk_level": "MODERATE"
+}

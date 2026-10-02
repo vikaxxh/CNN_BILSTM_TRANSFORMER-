@@ -1,0 +1,3 @@
+State,Systolic_BP,Diastolic_BP,CVD_Probability,Risk_Level
+Initial State,150,95,0.814202,VERY HIGH
+Post-Intervention / What-If,125,80,0.454614,MODERATE
